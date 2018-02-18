@@ -26,25 +26,24 @@ public class NumbersController {
     @RequestMapping(value = {"/","/resolvetask"}, method = RequestMethod.POST)
     public String saveNumbers(Numbers numbers,
                               ModelMap model) {
+        Double aD = numbersService.aD(numbers.getNumbA(), numbers.getNumbB(), numbers.getNumbC());
 
-        double x1 = (-numbers.getNumbB() -
-                Math.sqrt(numbers.getNumbB() * numbers.getNumbB() - 4 * numbers.getNumbA() * numbers.getNumbC()) )
-                / 2 *  numbers.getNumbA();
-        double x2 = (-numbers.getNumbB() +
-                Math.sqrt(numbers.getNumbB() * numbers.getNumbB() - 4 * numbers.getNumbA() * numbers.getNumbC()) )
-                / 2 *  numbers.getNumbA();
+        Double x1 = numbersService.root1(numbers.getNumbA(), numbers.getNumbB(), aD);
+        Double x2 = numbersService.root2(numbers.getNumbA(), numbers.getNumbB(), aD);
 
         numbers.setRootX1(x1);
         numbers.setRootX2(x2);
 
         numbersService.saveNumbers(numbers);
 
-        model.addAttribute("success", "QE is resolved. " + "Roots of quadratic equation " +
-                                                            numbers.getNumbA() + "x^2 " +
-                                                            numbers.getNumbB() + "b +" +
-                                                            numbers.getNumbC() + " are: x1 = " +
-                                                            numbers.getRootX1() + " and x2 = " +
-                                                            numbers.getRootX2());
+        model.addAttribute("success", "Quadratic equation is resolved. " +
+                                                                 "Roots of quadratic equation " +
+                                                                 numbers.getNumbA() + "x^2 " +
+                                                                 numbers.getNumbB() + "b +" +
+                                                                 numbers.getNumbC() + " are: x1 = " +
+                                                                 numbers.getRootX1() + " and x2 = " +
+                                                                 numbers.getRootX2());
         return "answer";
     }
+
 }
