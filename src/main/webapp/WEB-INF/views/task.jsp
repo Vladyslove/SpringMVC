@@ -33,9 +33,9 @@
 
 		<div class="row">
 			<div class="form-group col-md-12">
-				<label class="col-md-3 control-lable" for="numbB">numbB/label>
+				<label class="col-md-3 control-lable" for="numbB">numbB</label>
 				<div class="col-md-7">
-					<form:input type="text" path="numbB" id="numbB" class="form-control input-sm" />
+					<form:input type="text" path="numbB" id="numbB" class="form-control input-sm"/>
 					<div class="has-error">
 						<form:errors path="numbB" class="help-inline"/>
 					</div>
