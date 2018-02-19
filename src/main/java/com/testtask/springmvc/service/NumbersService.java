@@ -11,8 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class NumbersService {
 
+  private final NumbersDao dao;
+
   @Autowired
-  NumbersDao dao;
+  public NumbersService(NumbersDao dao) {
+    this.dao = dao;
+  }
 
   public void saveNumbers(Numbers numbers) {
     dao.save(numbers);

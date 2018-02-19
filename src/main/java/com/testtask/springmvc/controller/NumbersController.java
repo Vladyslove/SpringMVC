@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/")
 public class NumbersController {
+  private final NumbersService numbersService;
 
   @Autowired
-  NumbersService numbersService;
+  public NumbersController(NumbersService numbersService) {
+    this.numbersService = numbersService;
+  }
 
   @RequestMapping(method = RequestMethod.GET)
   public String newNumbers(ModelMap model) {
