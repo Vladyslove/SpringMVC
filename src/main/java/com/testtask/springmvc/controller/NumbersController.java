@@ -35,9 +35,9 @@ public class NumbersController {
                             "There are no roots for input coefficients");
             return "exception";
         }
-        Double aD = numbersService.aD(numbers.getNumbA(), numbers.getNumbB(), numbers.getNumbC());
-        Double x1 = numbersService.root1(numbers.getNumbA(), numbers.getNumbB(), aD);
-        Double x2 = numbersService.root2(numbers.getNumbA(), numbers.getNumbB(), aD);
+        Double discriminant = numbersService.calcDiscriminant(numbers.getNumbA(), numbers.getNumbB(), numbers.getNumbC());
+        Double x1 = numbersService.calcRoot1(numbers.getNumbA(), numbers.getNumbB(), discriminant);
+        Double x2 = numbersService.calcRoot2(numbers.getNumbA(), numbers.getNumbB(), discriminant);
 
         numbers.setRootX1(x1);
         numbers.setRootX2(x2);
@@ -45,10 +45,10 @@ public class NumbersController {
         numbersService.saveNumbers(numbers);
 
         model.addAttribute("success", "Quadratic equation is resolved. " +
-                "Roots of quadratic equation " +
+                "Roots of " +
                 numbers.getNumbA() + "x^2 " +
                 numbers.getNumbB() + "b +" +
-                numbers.getNumbC() + " are: x1 = " +
+                numbers.getNumbC() + " = 0  are: x1 = " +
                 numbers.getRootX1() + " and x2 = " +
                 numbers.getRootX2());
         return "answer";

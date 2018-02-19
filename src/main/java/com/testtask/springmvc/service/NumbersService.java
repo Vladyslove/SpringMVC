@@ -13,10 +13,6 @@ public class NumbersService {
     @Autowired
     NumbersDao dao;
 
-    public Numbers findById(int id) {
-        return dao.findById(id);
-    }
-
     public void saveNumbers(Numbers numbers) {
         dao.save(numbers);
     }
@@ -25,15 +21,15 @@ public class NumbersService {
         return b * b - 4 * a * c < 0;
     }
 
-    public Double aD(Integer a, Integer b, Integer c) {
+    public Double calcDiscriminant(Integer a, Integer b, Integer c) {
         return Math.sqrt(b * b - 4 * a * c);
     }
 
-    public Double root1(Integer a, Integer b, Double aD) {
+    public Double calcRoot1(Integer a, Integer b, Double aD) {
         return (- b + aD) / 2 * a;
     }
 
-    public Double root2(Integer a, Integer b, Double aD) {
+    public Double calcRoot2(Integer a, Integer b, Double aD) {
         return (- b - aD) / 2 * a;
     }
 }
