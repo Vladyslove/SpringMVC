@@ -13,18 +13,18 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.testtask.springmvc")
-public class SpringConfig extends WebMvcConfigurerAdapter{
+public class SpringConfig extends WebMvcConfigurerAdapter {
 
-    public void configureViewResolvers(ViewResolverRegistry registry) {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/WEB-INF/views/");
-        viewResolver.setSuffix(".jsp");
-        registry.viewResolver(viewResolver);
-    }
+  public void configureViewResolvers(ViewResolverRegistry registry) {
+    InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+    viewResolver.setViewClass(JstlView.class);
+    viewResolver.setPrefix("/WEB-INF/views/");
+    viewResolver.setSuffix(".jsp");
+    registry.viewResolver(viewResolver);
+  }
 
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("/static/");
-    }
+  public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    registry.addResourceHandler("/static/**").addResourceLocations("/static/");
+  }
 
 }

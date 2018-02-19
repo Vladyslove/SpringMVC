@@ -11,13 +11,14 @@ import javax.persistence.Id;
 @Data
 public class Numbers {
 
-    @Id @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Integer id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
 
-    private Integer numbA;
-    private Integer numbB;
-    private Integer numbC;
-    private Double rootX1;
-    private Double rootX2;
+  private Integer numbA;
+  private Integer numbB;
+  private Integer numbC;
+  private Double rootX1;
+  private Double rootX2;
 
 }
