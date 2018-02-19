@@ -1,9 +1,16 @@
 package com.testtask.springmvc.dao;
 
 import com.testtask.springmvc.model.Numbers;
+import org.springframework.stereotype.Repository;
 
-public interface NumbersDao {
-    Numbers findById(int id);
+@Repository
+public class NumbersDao extends AbstractDao<Integer, Numbers>{
 
-    void save(Numbers numbers);
+    public Numbers findById(int id) {
+        return getByKey(id);
+    }
+
+    public void save(Numbers numbers) {
+        persist(numbers);
+    }
 }

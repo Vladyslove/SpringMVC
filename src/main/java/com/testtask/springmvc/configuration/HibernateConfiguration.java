@@ -28,7 +28,7 @@ public class HibernateConfiguration {
     LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] {"com.testtask.springmvc.model"});
+        sessionFactory.setPackagesToScan("com.testtask.springmvc.model");
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }
@@ -58,6 +58,4 @@ public class HibernateConfiguration {
         txManager.setSessionFactory(s);
         return txManager;
     }
-
-
 }

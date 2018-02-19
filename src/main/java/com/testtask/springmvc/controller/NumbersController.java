@@ -15,7 +15,7 @@ public class NumbersController {
     @Autowired
     NumbersService numbersService;
 
-    @RequestMapping(value = {"/","/resolvetask"}, method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String newNumbers(ModelMap model) {
         Numbers numbers = new Numbers();
         model.addAttribute("numbers", numbers);
@@ -23,7 +23,7 @@ public class NumbersController {
         return "task";
     }
 
-    @RequestMapping(value = {"/","/resolvetask"}, method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public String saveNumbers(Numbers numbers,
                               ModelMap model) {
 

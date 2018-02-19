@@ -1,16 +1,39 @@
 package com.testtask.springmvc.service;
 
+import com.testtask.springmvc.dao.NumbersDao;
 import com.testtask.springmvc.model.Numbers;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-public interface NumbersService {
-    Numbers findById(int id);
-    void saveNumbers(Numbers numbers);
+@Service
+@Transactional
+public class NumbersService {
 
-    Boolean isRadicandLessThanZero(Integer numbA, Integer numbB, Integer numbC);
+    @Autowired
+    NumbersDao dao;
 
-    Double aD(Integer a, Integer b, Integer c);
+    public Numbers findById(int id) {
+        return dao.findById(id);
+    }
 
-    Double root1(Integer numbA, Integer numbB, Double aD);
+    public void saveNumbers(Numbers numbers) {
+        dao.save(numbers);
+    }
 
-    Double root2(Integer numbA, Integer numbB, Double aD);
+    public Boolean isRadicandLessThanZero(Integer a, Integer b, Integer c) {
+        return b * b - 4 * a * c < 0;
+    }
+
+    public Double aD(Integer a, Integer b, Integer c) {
+        return Math.sqrt(b * b - 4 * a * c);
+    }
+
+    public Double root1(Integer a, Integer b, Double aD) {
+        return (- b + aD) / 2 * a;
+    }
+
+    public Double root2(Integer a, Integer b, Double aD) {
+        return (- b - aD) / 2 * a;
+    }
 }
