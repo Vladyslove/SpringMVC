@@ -1,15 +1,15 @@
 body, #mainWrapper {
 	height: 100%;
-	background-color:rgb(245, 245, 245);
+	background-color:rgb(225, 225, 205);
 }
 
 body, .form-control{
-	font-size:12px!important;
+	font-size:14px!important;
 }
 
 .floatRight{
 	float:right;
-	margin-right: 18px;
+	margin-right: 28px;
 }
 
 .has-error{
@@ -24,7 +24,7 @@ body, .form-control{
   margin-bottom: 20px;
   padding: 20px;
   background-color: #EAE7E7;
-  border: 1px solid #ddd;
+  border: 2px solid #afd9eedd;
   border-radius: 4px;
   box-shadow: 0 0 30px black;
 }

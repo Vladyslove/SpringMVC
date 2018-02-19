@@ -6,7 +6,7 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>Task Form</title>
+	<title>Task Page</title>
 	<link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet">
 	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet">
 </head>
@@ -14,7 +14,7 @@
 <body>
 
  	<div class="generic-container">
-	<div class="well lead">User Registration Form</div>
+	<div class="well lead">Please, type numbers of coefficients for your QE</div>
  	<%--@elvariable id="numbers" type=""--%>
  	<form:form method="POST" modelAttribute="numbers" class="form-horizontal">
 		<form:input type="hidden" path="id" id="id"/>
